@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
