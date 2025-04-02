@@ -19,7 +19,7 @@ const PageSelector = () => {
     setSelectAll((prev) => !prev);
 
     const updatedOptions = Object.keys(selectedOptions).reduce(
-      (acc, key) => ({ ...acc, [key]: !selectAll }),
+      (acc, key) => ({ ...acc, [key]: !selectAll }), //Makes all the values true if selectAll is false and vice versa
       {}
     );
     setSelectedOptions(updatedOptions);
@@ -35,6 +35,7 @@ const PageSelector = () => {
 
   return (
     <div className="flex flex-col justify-evenly w-[365px] h-fit bg-white p-4 rounded-[6px] shadow-lg">
+      {/* Header select all pages optino */}
       <div
         className="flex flex-row justify-between text-lg font-thin mt-2 hover:cursor-pointer"
         onClick={() => handleSelectAllChange()}
@@ -66,10 +67,14 @@ const PageSelector = () => {
           />
         </div>
       </div>
+
+      {/* Divider */}
       <div className="border-b-1 w-full border-[#CDCDCD] self-center my-4" />
+
+      {/* List of the pages or options using reduce and array format since we are deriving it from just a number easier if done using a premade object with names */}
       <div className="flex flex-col gap-2">
         {Array.from({ length: NUMBER_OF_OPTIONS }, (_, index) => {
-          const optionKey = `option${index + 1}`; 
+          const optionKey = `option${index + 1}`;
           return (
             <div
               key={optionKey}
@@ -108,7 +113,11 @@ const PageSelector = () => {
           );
         })}
       </div>
+
+      {/* Divider */}
       <div className="border-b-1 w-full border-[#CDCDCD] self-center my-4" />
+
+      {/* Submit button can add funtionality to remove the checkboxes or some other functionality */}
       <button className="w-full rounded-[4px] bg-[#FFCE22] active:bg-[#FFCE22] hover:bg-[#FFD84D] cursor-pointer active:translate-y-[1px] active:translate-x-[0.6px] active:cursor-default shadow-lg p-2 mt-2">
         Done
       </button>
